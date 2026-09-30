@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Çarşı Doğu Anadolu</title>
+  <meta name="description" content="Doğunun kalbinde, siyah beyaz bir sevda. Çarşı Doğu Anadolu resmi topluluk sitesi.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Barlow:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ÜST MENÜ: bağlantıları buradan değiştirebilirsin -->
+<header class="ust">
+  <a href="#hero" class="logo">ÇARŞI <span>DOĞU ANADOLU</span></a>
+  <nav>
+    <a href="#hakkimizda">Biz Kimiz</a>
+    <a href="#temsilcilikler">Temsilcilikler</a>
+    <a href="#galeri">Tribün</a>
+    <a href="#duyurular">Deplasman</a>
+    <a href="#katil" class="vurgu">Bize Katıl</a>
+  </nav>
+</header>
+
+<!-- 1) HERO: arka plan görselini style.css içindeki --hero-gorsel satırından değiştir -->
+<section id="hero" class="hero">
+  <div class="hero-icerik">
+    <h1>ÇARŞI<br>DOĞU ANADOLU</h1>
+    <p class="slogan">Doğunun Kalbinde, Siyah Beyaz Bir Sevda</p>
+    <div class="butonlar">
+      <a href="#katil" class="btn btn-kirmizi">Bize Katıl</a>
+      <a href="#duyurular" class="btn btn-cizgi">Yaklaşan Organizasyonlar</a>
+    </div>
+  </div>
+</section>
+
+<main>
+<!-- 2) MANİFESTO: metni istediğin gibi düzenle -->
+<section id="hakkimizda" class="bolum dar">
+  <h2>Biz tribünün sesiyiz.</h2>
+  <p class="manifesto">Biz ne bir kulüp yönetimiyiz ne de bir reklam afişi. Biz, Doğu'nun ve Güneydoğu'nun dağlarından, ovalarından Beşiktaş'a uzanan bir omuz omuza duruşuz.</p>
+  <p>Kimimiz işçi, kimimiz öğrenci, kimimiz esnaf. Hepimizin ortak tarafı aynı: Maça gitmek için yüzlerce kilometre yolu göze almak, bayrağı yere düşürmemek, yanındaki kardeşi yalnız bırakmamak.</p>
+  <p><strong>Misyonumuz:</strong> Siyah beyaz sevdayı bölgede yaşatmak, taraftarı örgütlemek, el emeğiyle üretmek. <strong>Vizyonumuz:</strong> Her ilde bir Çarşı, her deplasmanda bir Doğu Anadolu kalabalığı.</p>
+</section>
+
+<!-- 3) TEMSİLCİLİKLER: kartlar app.js içindeki TEMSILCILIKLER listesinden otomatik oluşur -->
+<section id="temsilcilikler" class="bolum">
+  <h2>Temsilciliklerimiz</h2>
+  <p class="alt">Bir karta dokun, o ilin grubunu gör.</p>
+  <div id="temsilGrid" class="temsil-grid"></div>
+</section>
+
+<!-- 4) GALERİ: görselleri app.js içindeki GALERI listesinden değiştir -->
+<section id="galeri" class="bolum">
+  <h2>Üretim &amp; Tribün</h2>
+  <p class="alt">Pankartlar, yağmurluklar, atkılar. Hepsi el emeği.</p>
+  <div id="galeriGrid" class="galeri"></div>
+</section>
+
+<!-- 5) DUYURU PANOSU: veriler Firebase'den canlı gelir -->
+<section id="duyurular" class="bolum dar">
+  <h2>Deplasman &amp; Organizasyon</h2>
+  <p class="alt">Otobüs, toplanma yeri, saat. Yeni duyuru eklenince burası kendiliğinden güncellenir.</p>
+  <div id="duyuruListe" class="duyuru-liste"><p class="bos">Duyurular yükleniyor…</p></div>
+</section>
+
+<!-- 6) ÜYELİK FORMU: veriler Firebase'de "uyeler" koleksiyonuna kaydolur -->
+<section id="katil" class="bolum dar">
+  <h2>Bize Katıl</h2>
+  <p class="alt">Bilgilerini bırak, temsilciliğin seninle iletişime geçsin.</p>
+  <form id="katilForm" novalidate>
+    <div class="satir">
+      <label>Ad<input name="ad" required autocomplete="given-name"></label>
+      <label>Soyad<input name="soyad" required autocomplete="family-name"></label>
+    </div>
+    <label>Temsilcilik<select name="sehir" id="sehirSec" required><option value="">Seç…</option></select></label>
+    <label>Telefon<input name="telefon" type="tel" placeholder="05XX XXX XX XX" required autocomplete="tel"></label>
+    <input name="web" class="tuzak" tabindex="-1" autocomplete="off" aria-hidden="true"> <!-- bot tuzağı, silme -->
+    <button class="btn btn-kirmizi" type="submit">Başvuruyu gönder</button>
+    <p id="formDurum" role="status"></p>
+  </form>
+</section>
+</main>
+
+<!-- Alt bilgi: sosyal bağlantılar app.js'teki TEMSILCILIKLER'den gelir -->
+<footer>
+  <strong>ÇARŞI DOĞU ANADOLU</strong>
+  <div id="footerLinkler" class="footer-linkler"></div>
+  <small>Bu site bağımsız bir taraftar oluşumudur.</small>
+</footer>
+
+<!-- Büyütme penceresi (lightbox) -->
+<dialog id="lightbox"><button id="lbKapat" aria-label="Kapat">✕</button><img alt=""><p></p></dialog>
+
+<script type="module" src="app.js"></script>
+</body>
+</html>
